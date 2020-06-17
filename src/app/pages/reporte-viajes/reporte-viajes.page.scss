@@ -1,0 +1,32 @@
+page-reporte-viajes {
+    .content-md {
+        color: #000;
+        background-color: #d9eafc;
+    }
+    .background{
+        // background-image: url(.//src/assets/icon/report.svg);
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .contenedor-img{
+        margin-top: 0 !important; 
+        background: transparent !important; 
+        border-radius: 98%;
+        text-align: center;
+        width: 250px;
+        height: 250px;
+        padding: 0;
+        margin-left: calc(50% - 125px);
+        top: 10%;
+        margin-top: 10%;
+        position: relative;
+        margin-bottom: 15%;
+    }
+    ion-item{
+        margin: 10px 0
+    }
+    h3, p {
+        color: #000
+    }
+}

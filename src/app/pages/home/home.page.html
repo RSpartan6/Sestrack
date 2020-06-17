@@ -1,0 +1,55 @@
+<ion-header no-border>
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>
+      Mapa de Viaje
+    </ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button (click)="addMarker()"><ion-icon name="add"></ion-icon>Add Marker</button>
+    </ion-buttons>  -->
+  </ion-navbar>
+</ion-header>
+
+<ion-fab right top #fab *ngIf="tieneAperturas">
+    <button ion-fab style="
+    margin-left: -31px;
+    margin-right: -10px;
+    background: transparent;
+    border: initial;
+    box-shadow: initial;" color="light" mini><ion-icon name="more"></ion-icon></button>
+    <ion-fab-list side="bottom" style="margin-left:-200px; margin-top: 5px !important">
+      <button ion-button color="light" (click)="aperturas(fab)">Aperturas de Puertas</button>
+    </ion-fab-list>
+  </ion-fab>
+<ion-content>
+    
+    
+  <div #map id="map"></div> 
+  <!-- <div  style="position:absolute; bottom: 0">
+
+      <label item-end for="" color="secondary">   
+      <br><br>
+      <label for="" color="danger"> 
+        <ion-icon name="timer"  color="primary"></ion-icon>
+        12 minutos con perdida de 2°</label>
+  </div> -->
+  <ion-grid *ngIf="mostrarAperturas" style="position:absolute; bottom: 0; background: #fff">
+    <h3>Apertura de puertas</h3>
+    <ion-row *ngFor="let item of listaAperturas">
+      <ion-col col-1 class="vertical-center">
+          <ion-icon name="pin" item-start color="secundary"></ion-icon>
+      </ion-col>
+      <ion-col col-11>
+         {{item.localizacion}}, {{item.fechaHora}}
+      </ion-col>
+      <ion-col col-1 class="vertical-center">
+          <ion-icon name="timer" item-start color="primary"></ion-icon>
+      </ion-col>
+      <ion-col col-11>
+          {{item.duracion}} minutos con perdida de {{item.perdidaTemperatura}}°
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

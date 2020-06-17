@@ -1,0 +1,98 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nuevo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-12>
+        <h2 class="title-viaje"></h2>
+
+        <ion-item>
+          <ion-label>Referencia</ion-label>
+          <ion-input type="text" maxlength="19" [(ngModel)]="nuevo.referencia"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Cliente</ion-label>
+          <select-searchable item-content [(ngModel)]="nuevo.idCliente" [items]="clientes" itemValueField="id"
+            itemTextField="nombre" closeButtonText="Cancelar" searchPlaceholder="Buscar" [canSearch]="true">
+          </select-searchable>
+        </ion-item>
+        <ion-item>
+          <ion-label>Usuario</ion-label>
+          <select-searchable item-content [(ngModel)]="nuevo.idUsuario" [items]="usuarios" itemValueField="idUsuario"
+            itemTextField="nombre" closeButtonText="Cancelar" searchPlaceholder="Buscar" [canSearch]="true">
+          </select-searchable>
+        </ion-item>
+        <ion-item>
+          <ion-label>Transporte</ion-label>
+          <select-searchable item-content [(ngModel)]="nuevo.idTransporte" [items]="carrocerias" itemValueField="id"
+            closeButtonText="Cancelar" itemTextField="descripcion" searchPlaceholder="Buscar" [canSearch]="true">
+          </select-searchable>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="pin"></ion-icon>
+          </ion-label>
+          <ion-input type="text" placeholder="Origen" [(ngModel)]="autocompleteOrigen.input"  [(ngModel)]="autocompleteOrigen.input" (ionInput)="updateOrigenResults()"
+          (input)="updateOrigenResults()" ></ion-input>
+        </ion-item>
+        <ion-item *ngFor="let itemO of autocompleteItemsOrigen" tappable (click)="selectOrigen(itemO)">
+          {{ itemO.description }}
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="pin"></ion-icon>
+          </ion-label>
+          <ion-input type="text" placeholder="Destino" [(ngModel)]="autocompleteDestino.input"  [(ngModel)]="autocompleteDestino.input" (ionInput)="updateDestinoResults()" 
+          (input)="updateDestinoResults()"></ion-input>
+        </ion-item>
+        <ion-item *ngFor="let itemD of autocompleteItemsDestino" tappable (click)="selectDestino(itemD)">
+          {{ itemD.description }}
+        </ion-item>
+
+     <!--   <ion-item>
+          <ion-label>
+            <ion-icon name="pin"></ion-icon>
+          </ion-label>
+          <ion-input type="text" placeholder="Lat. Origen" [(ngModel)]="latOrigen"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="pin"></ion-icon>
+          </ion-label>
+          <ion-input type="text" placeholder="Lat. Destino" [(ngModel)]="latDestino"></ion-input>
+        </ion-item> -->
+      <!--  <ion-item>
+          <ion-label>
+            <ion-icon name="pin"></ion-icon>
+          </ion-label>
+          <ion-input type="text" placeholder="Lon. Origen" [(ngModel)]="lonOrigen"></ion-input>
+        </ion-item>
+        <ion-item> 
+          <ion-label>
+            <ion-icon name="pin"></ion-icon>
+          </ion-label>
+          <ion-input type="text" placeholder="Lon. Destino" [(ngModel)]="lonDestino"></ion-input>
+        </ion-item> -->
+ 
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <button ion-button full [disabled]="!nuevo.idCliente || !nuevo.idUsuario || !nuevo.idTransporte" 
+    (click)="nuevoViaje()">Crear viaje</button>
+
+</ion-content>
+<ion-footer>
+
+</ion-footer>

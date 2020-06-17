@@ -1,0 +1,37 @@
+page-monitor-gasolina {
+    .back{
+        background-image: url(/src/assets/icon/car2.svg);
+        background-repeat: no-repeat;
+        background-position: right top;
+        background-origin: border-box;
+        width: 100%;
+        height: 35vh;
+        position: absolute;
+        right: -48%;
+        top: -55px;
+        opacity: 0.7;
+        -webkit-transform: scaleX(-1) rotate(20deg) !important;
+        transform: scaleX(-1) rotate(30deg) !important;
+        background-size: 70%;
+    }
+    ion-grid{
+        margin-top: 37vh;
+    }
+    ion-row{
+        border-bottom: 1px solid #99d2ee;
+
+    }
+    h1{
+        font-size: 4em
+    }
+    canvas{
+        bottom: 0;
+        position: relative;
+    }
+    .tracto{
+       color: rgba(129,199,222,1)
+    }
+    .termo{
+        color: rgba(129,100,222,1)
+     }
+}

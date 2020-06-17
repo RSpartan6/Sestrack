@@ -1,0 +1,60 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Monitores</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background: #F3F3F3">
+  <h2>Monitores del Viaje</h2>
+  <br>
+    <ion-grid >
+        <ion-row>
+          <ion-col col-6 (click)="goMonitor(1)" *ngIf="temperatura" >
+            <h3>Temperatura</h3>
+            <ion-img [src]="/src/assets/icon/thermometer.svg"></ion-img>
+            <!-- <img src="/src/assets/icon/thermometer.svg" alt=""> -->
+          </ion-col>
+          <ion-col col-6 (click)="goMonitor(2)" *ngIf="gps">
+              <h3>Ruta</h3>
+              <ion-img [src]="/src/assets/icon/map.svg"></ion-img>
+              <!-- <img src="/src/assets/icon/map.svg" alt=""> -->
+          </ion-col>
+          
+        </ion-row>
+
+        <ion-row *ngIf ="usuario&&usuario.idRol==5">
+            <ion-col col-6 (click)="goMonitor(3)" *ngIf="gas&&cantidad<3">
+                <h3>Diesel</h3>
+                <ion-img [src]="/src/assets/icon/car.svg"></ion-img>
+                  <!-- <img src="/src/assets/icon/car.svg" alt=""> -->
+            </ion-col>
+            <ion-col col-6 (click)="goMonitor(3)" *ngIf="gas&&cantidad>2">
+                <h3>Diesel</h3>
+                <ion-img [src]="/src/assets/icon/car.svg"></ion-img>
+                <!-- <img src="/src/assets/icon/car.svg" alt=""> -->
+            </ion-col>
+            <ion-col col-6 (click)="goMonitor(4)" >
+              <h3>Ubicación Transporte</h3>
+              <ion-img [src]="/src/assets/icon/world.svg"></ion-img>
+                <!-- <img src="/src/assets/icon/world.svg" alt=""> -->
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf ="usuario&&usuario.idRol==2">
+            <ion-col col-12 (click)="goMonitor(3)" *ngIf="gas&&cantidad<3">
+                <h3>Diesel</h3>
+                <ion-img [src]="/src/assets/icon/car.svg"></ion-img>
+                  <!-- <img src="/src/assets/icon/car.svg" alt=""> -->
+            </ion-col>
+            <ion-col col-12 (click)="goMonitor(3)" *ngIf="gas&&cantidad>2">
+                <h3>Diesel</h3>
+                <ion-img [src]="/src/assets/icon/car.svg"></ion-img>
+                <!-- <img src="/src/assets/icon/car.svg" alt=""> -->
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+</ion-content>

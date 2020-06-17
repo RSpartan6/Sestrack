@@ -1,3 +1,27 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
+
+<!-- 
+<ion-menu [content]="content" >
+  <ion-header (click)="menu()">
+      
+    <ion-toolbar>
+       
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list *ngIf="logged">
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" class="item-md-menu">
+        {{p.title}}
+      </button>
+    </ion-list>
+      <ion-img [src]="assets/imgs/sestrackbaja.png" class="img-logo" alt="" width="70%"></ion-img>
+          <!-- <img src=".././assets/imgs/sestrackbaja.png" class="img-logo" alt="" width="70%"> -->
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false" (click)="menu()"></ion-nav> -->

@@ -1,5 +1,7 @@
 {
   "name": "Sestrack",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

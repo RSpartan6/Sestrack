@@ -1,0 +1,70 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Gastos de viaje</ion-title>
+    <ion-buttons end>
+        <!-- <button ion-fab mini (click)="AddGasto()" *ngIf ="usuario&&usuario.idRol==2"> -->
+          <!-- Diciembre 2019 -->
+            <button ion-fab mini (click)="nuevoGasto()" *ngIf ="usuario&&usuario.idRol==2">
+          <ion-icon name="add" ></ion-icon>
+        </button>
+
+      </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+
+  <ion-grid>
+      <ion-row class="gastos">
+        <ion-col col-4>
+          <div>
+            Tipo de Gasto
+          </div>
+        </ion-col>
+        <ion-col col-4>
+          <div>
+            Descripcion
+          </div>
+        </ion-col>
+        <ion-col col-4>
+          <div>
+            Monto 
+          </div>
+        </ion-col>
+        <!-- <ion-col>
+            <div>
+              Fecha 
+            </div>
+          </ion-col> -->
+      </ion-row>
+      
+      <ion-grid>
+          <ion-row  *ngFor="let item of gastos" (click)="menuEliminar(item.idGasto)">
+              <ion-col col-4>
+                  <p>{{item.tipoGasto}}</p>
+              </ion-col>
+              <ion-col col-4>
+                  <p>{{item.descripcion}}</p>
+              </ion-col>
+              <ion-col col-4>
+                <p>
+                    <ion-icon name="logo-usd" item-start> </ion-icon> 
+                    {{item.monto}}
+                </p>
+              </ion-col>
+              <!-- <ion-col col-3>
+                  <p>{{item.fecha|date :'yyyy-MM-dd'}}</p>
+              </ion-col> -->
+            </ion-row>
+      </ion-grid>
+
+    </ion-grid>
+
+    <p *ngIf="gastos.length==0">
+      Sin Gastos
+    </p>
+
+</ion-content>

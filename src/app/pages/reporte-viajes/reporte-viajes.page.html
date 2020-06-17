@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header> 
+<ion-content>
+<ion-content padding class="background">
+  <div class="contenedor-img">
+    <ion-img [src]=".//src/assets/imgs/sestrackbaja.png" width="65%"></ion-img>
+      <!-- <img src=".//src/assets/imgs/sestrackbaja.png" width="65%"> -->
+      <h3>Monitor de Viajes</h3>    
+      <p>Ingresa las fechas para generar el reporte</p>
+  </div>
+  
+  <form #loginForm="ngForm" novalidate >
+
+  <ion-list padding>
+
+      <ion-item>
+              <!-- <p>Ingresa las fechas para geberar el reporte</p> -->
+
+          <ion-datetime displayFormat="YYYY-MM-DD" name="fInicio" #fInicio="ngModel"  placeholder="Fecha Inicio" [(ngModel)]="inicio" pickerFormat="YYYY-MM-DD" cancelText="Cancelar" doneText="Aceptar"></ion-datetime>
+          <ion-label>  
+            <ion-icon name="calendar"></ion-icon>
+          </ion-label>        
+      </ion-item>
+      <!-- <p ion-text [hidden]="fInicio.valid || submitted == false" color="danger" padding-left>
+          Campo requerido
+      </p> -->
+      <ion-item>
+          <ion-datetime displayFormat="YYYY-MM-DD" name="fFIn" #fFIn="ngModel" placeholder="Fecha Fin" [(ngModel)]="fin" pickerFormat="YYYY-MM-DD" cancelText="Cancelar" doneText="Aceptar"></ion-datetime>
+          <ion-label>  
+            <ion-icon name="calendar"></ion-icon>
+          </ion-label> 
+      </ion-item>
+      <!-- <p ion-text [hidden]="fFin.valid || submitted == false" color="danger" padding-left>
+          Campo Contraseña requerido
+      </p> -->
+
+      <button ion-button (click)="buscar()" type="submit"  full>Buscar</button>
+  </ion-list>
+</form>

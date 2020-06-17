@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Combustible</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="back"></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <h2 class="tracto">{{viaje.litrosConsumidosTracto.toFixed(2)}}</h2>
+      </ion-col>
+
+      <ion-col col-8>
+        <h3 class="tracto">Lts Gastados Tracto</h3>
+        <p>
+          {{(viaje.litrosTracto + viaje.litrosConsumidosTracto).toFixed(2)}} lts
+        </p>
+        <p>
+          {{viaje.litrosTracto.toFixed(2) }} lts
+        </p>
+      </ion-col>
+    </ion-row>
+    <p>{{viaje.numeroCargasTracto}} carga(s) de combustible</p>
+
+    <ion-row>
+      <ion-col col-4>
+        <h2 class="termo">{{viaje.litrosConsumidosThermo.toFixed(2)}}</h2>
+      </ion-col>
+
+      <ion-col col-8 *ngIf="viaje.litrosThermo">
+        <h3 class="termo">Lts Gastados Termo</h3>
+        <p>
+          {{(viaje.litrosThermo + viaje.litrosConsumidosThermo).toFixed(2)}} lts
+        </p>
+        <p>
+          {{viaje.litrosThermo.toFixed(2) }} lts
+        </p>
+      </ion-col>
+    </ion-row>
+    <p *ngIf="viaje.litrosThermo">
+      {{viaje.numeroCargasThermo}} carga(s) de combustible
+    </p>
+    <ion-col col-12 *ngIf="alertaString" class="center" color="danger">
+      <ion-img [src]="/src/assets/icon/warning.svg" alt="" width="30px" ></ion-img>
+      <!-- <img src="/src/assets/icon/warning.svg" alt="" width="30px" /> -->
+      <p class="alert">Alerta, {{alertaString}}</p>
+    </ion-col>
+  </ion-grid>
+
+  <canvas #lineCanvas></canvas>
+  <!-- </ion-card-content>
+      </ion-card> -->
+</ion-content>

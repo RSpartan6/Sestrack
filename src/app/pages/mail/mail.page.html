@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Correo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #loginForm="ngForm" novalidate >
+
+    <ion-list padding>
+        <ion-item>
+            <ion-input type="text" [(ngModel)]="asunto"  placeholder="Asunto" name="asunto" #subject="ngModel" spellcheck="false" autocapitalize="on" required></ion-input>
+          </ion-item>
+          <p ion-text [hidden]="subject.valid || submitted == false" color="danger" padding-left>
+            Campo asunto requerido
+          </p>
+        <!-- <ion-item>
+          <ion-input type="text" [(ngModel)]="asunto"  placeholder="Asunto" name="asunto" #asunto="ngModel" spellcheck="false" autocapitalize="off" required></ion-input>
+        </ion-item> -->
+        <!-- <p ion-text [hidden]="asunto.valid || submitted == false" color="danger" padding-left>
+            Campo asunto requerido
+          </p> -->
+        <ion-item>
+          <ion-input type="email" [(ngModel)]="email" placeholder="Correo"  name="email" #mail="ngModel" required></ion-input>
+        </ion-item>
+        <p ion-text [hidden]="mail.valid || submitted == false" color="danger" padding-left>
+            Campo Email requerido
+          </p>
+    </ion-list>
+  </form>
+</ion-content>

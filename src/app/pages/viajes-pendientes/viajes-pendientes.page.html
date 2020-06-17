@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Viajes Creados</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="viajesPorFecha(false)">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header> 
+<ion-content>
+ 
+
+    <ion-list>
+      <ion-item>
+        <ion-datetime displayFormat="YYYY-MM-DD" placeholder="Fecha Inicio" [(ngModel)]="fecha" (ionChange)="viajesPorFecha(true)" pickerFormat="YYYY-MM-DD" cancelText="Cancelar" doneText="Aceptar"></ion-datetime>
+            <ion-label>  
+              <ion-icon name="calendar"></ion-icon>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-datetime displayFormat="YYYY-MM-DD" placeholder="Fecha Fin" [(ngModel)]="fechaFin" (ionChange)="viajesPorFecha(true)" pickerFormat="YYYY-MM-DD" cancelText="Cancelar" doneText="Aceptar"></ion-datetime>
+            <ion-label>  
+              <ion-icon name="calendar"></ion-icon>
+            </ion-label>
+        </ion-item>
+        <ion-item *ngFor="let item of viajes"            
+        [ngClass]="{'cerrado':item.estatusViaje=='CERRADO', 'asignado':item.estatusViaje=='ASIGNADO', 'finalizado':item.estatusViaje=='FINALIZADO', 'iniciado':item.estatusViaje=='INICIADO', 'cancelado':item.estatusViaje=='CANCELADO'}"
+        (click)="showDetalle(item)">
+          <ion-avatar item-start>
+          </ion-avatar>
+        <h2>{{item.nombreCliente}}</h2>
+        <p>Viaje {{item.id}}</p>
+        <p>{{item.estatusViaje}}</p>
+        <p>{{item.fechaInicioViaje}}</p>
+        <div item-end class="div60">
+            <div>
+                <ion-icon name="dot"  color="secondary" ></ion-icon>
+                <div class="separador-punteado"></div>
+                <ion-icon name="dot"  color="danger" ></ion-icon>
+
+            </div>
+            <div style="padding-left:4px">
+              
+                <p class="origen">{{item.origen}}</p>
+                <p class="line">__________________________________________________________________________________-_</p>
+                <p class="destino">  Sin Destino</p>
+            </div>
+          </div>
+
+      </ion-item>
+      </ion-list>
+   
+</ion-content>
+

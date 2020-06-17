@@ -1,0 +1,72 @@
+page-detalle-viaje {
+
+    h2,h3{
+        font-size: 1em;
+    }
+    #map {
+        width: 100% !important;
+        height: 25vh !important;
+    }
+
+    img{
+        width: 30%;
+        align-items: center;
+    }
+
+    ion-icon {
+        &[class*="engine-"] {
+          mask-size: contain;
+          mask-position: 50% 50%;
+          mask-repeat: no-repeat;
+          background: currentColor;
+          width: 1.9em;
+          height: 1.9em;
+        
+        }
+     
+        &[class*="engine-yellow"] {
+            
+            // mask-image: url(/src/assets/icon/engine-red.svg);
+            mask-image: url(/src/assets/icon/engine-red.svg);
+
+        }
+        
+        &[class*="engine-green"] {
+            mask-image: url(/src/assets/icon/engine-red.svg);
+        }
+        &[class*="engine-red"] {
+            mask-image: url(/src/assets/icon/engine-red.svg);
+        }
+    }
+    .comentarios{
+        font-size: 25px
+    }
+    .center{
+        text-align: center
+    }
+    .padding-0{
+        padding: 0
+    }
+    .label-md {
+         margin: 0 !important;
+         padding: 0 !important ;
+    }
+    .viaje{
+        font-size: 1.2em;
+        margin-bottom: 4px
+    }
+
+
+    ion-footer {
+        bottom: 15px;
+    }
+}
+.bold{
+    font-weight: 500
+}
+.gray{
+    color: #AAA;
+    font-size: 1em;
+    font-stretch: condensed
+    
+}

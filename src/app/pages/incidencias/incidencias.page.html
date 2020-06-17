@@ -1,0 +1,52 @@
+
+<ion-header no-border>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Incidencias</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <div padding>
+        <ion-segment [(ngModel)]="tipo">
+          <ion-segment-button [value]="1" (click)="incidencias()">
+            Pendientes
+          </ion-segment-button>
+          <ion-segment-button [value]="2" (click)="incidenciasLeidas()">
+            Todas
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+    <div [ngSwitch]="tipo">
+        <ion-list *ngSwitchCase="1">
+            <ion-item *ngFor="let item of incidentes" (click)="detalle(item);leido(item)">
+          
+                <!-- <ion-icon name="alert" color="alert"></ion-icon> -->
+                  <p class="title-viaje" >Viaje {{item.idViaje}}</p>
+                  <p >{{item.fecha}} {{item.hora}}</p>
+                  <p  class="bold">{{item.descripcion}}</p>
+                <ion-icon name="thermometer" color="alert" item-end *ngIf="item.tipoAlerta=='TEMPERATURA'"></ion-icon>
+                <ion-icon name="custom-delivery"  color="alert" item-end *ngIf="item.tipoAlerta=='COMBUSTIBLE'"></ion-icon>
+                <!-- <ion-icon name="checkbox-outline" style="    margin: 14px !important;" item-end (click)="marcar(item)"></ion-icon> -->
+
+              </ion-item>
+        </ion-list>
+        <ion-list *ngSwitchCase="2">
+            <ion-item *ngFor="let item of incidentesTodos" (click)="detalle(item)">
+                <!-- <ion-icon name="alert" color="alert"></ion-icon> -->
+                  <p class="title-viaje">Viaje {{item.idViaje}}</p>
+                  <p>{{item.fecha}} {{item.hora}}</p>
+                  <p class="bold">{{item.descripcion}}</p>
+                <ion-icon name="thermometer" color="alert" item-end *ngIf="item.tipoAlerta=='TEMPERATURA'"></ion-icon>
+                <ion-icon name="custom-delivery" color="alert" item-end *ngIf="item.tipoAlerta=='COMBUSTIBLE'"></ion-icon>
+      
+              </ion-item>
+        </ion-list>
+    </div>
+   
+</ion-content>

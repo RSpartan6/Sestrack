@@ -1,0 +1,26 @@
+page-login {
+    .background{
+        background-image: url(.//src/assets/imgs/background-login.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    ion-item{
+        margin: 10px 0
+    }
+}
+.contenedor-img{
+    margin-top: 20%;
+    // background: #fff;
+    border-radius: 50%;
+    text-align: center;
+    width: 250px;
+    height: 250px;
+    padding: 65px 0 0 0;
+    margin-left: calc(50% - 125px);
+    margin-bottom: 10%;
+}
+
+.text-md-danger {
+    color: #d7c5c5 !important;
+}

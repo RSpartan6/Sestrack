@@ -1,0 +1,28 @@
+<ion-content padding class="background">
+  <div class="contenedor-img">
+      <!-- <img src=".//src/assets/imgs/sestrackbaja.png" width="150%"> -->
+      <ion-img [src]=".//src/assets/imgs/sestrackbaja.png" width="150%"></ion-img>
+
+  </div>
+  <form #loginForm="ngForm" novalidate >
+
+  <ion-list padding>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="login.username"  placeholder="Usuario" name="username" #username="ngModel" spellcheck="false" autocapitalize="on" required></ion-input>
+      </ion-item>
+      <p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
+          Campo Usuario requerido
+        </p>
+      <ion-item>
+        <ion-input type="password" [(ngModel)]="login.password" placeholder="Contraseña"  name="password" type="password" #password="ngModel" required></ion-input>
+      </ion-item>
+      <p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
+          Campo Contraseña requerido
+        </p>
+
+      <button ion-button (click)="onLogin(loginForm)" type="submit"  full>Iniciar Sesión</button>
+      <button ion-button color="light" (click)="resetPassword()" full clear>¿Olvidaste tu contraseña?</button>
+
+  </ion-list>
+</form>
+</ion-content>

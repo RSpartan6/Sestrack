@@ -1,0 +1,131 @@
+
+<ion-header>
+    
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Viaje</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-fab right *ngIf="viaje.estatusViaje=='ASIGNADO'||viaje.estatusViaje=='INICIADO'" #fab>
+  <button ion-fab class="acciones" color="light" mini><ion-icon name="more"></ion-icon></button>
+  <ion-fab-list side="bottom" style="margin-left:-150px; margin-top: 40px !important" *ngIf="viaje.estatusViaje=='ASIGNADO'">
+    <button ion-button color="light" (click)="cambioTransportista(fab)">Cambiar transportista</button>
+  </ion-fab-list>
+  <ion-fab-list side="bottom" style="margin-left:-85px; margin-top: 40px !important" *ngIf="viaje.estatusViaje=='INICIADO'">
+    <button ion-button color="light" (click)="cancelar(fab)">Cancelar Viaje</button>
+  </ion-fab-list>
+
+</ion-fab>
+
+
+<ion-content >
+  <ion-grid>
+    <!-- <ion-row>
+      <ion-col col-12>
+        <img src=".//src/assets/imgs/Captura.PNG" alt=" imagen mapa">
+
+      </ion-col>
+    </ion-row> -->
+   
+    <ion-row>
+      <ion-col col-12>
+        <h2 class="title-viaje">Viaje {{viaje.id}}</h2>
+        <!-- <ion-item>
+          <ion-label>Cliente</ion-label>
+          <ion-select [(ngModel)]="viaje.idCliente" cancelText="Cancelar" okText="Aceptar">
+            <ion-option [value]="item.id" *ngFor="let item of clientes">{{item.nombre}}</ion-option>
+          </ion-select>
+       </ion-item> -->
+       <ion-item>
+        <ion-label>Cliente</ion-label>
+        <select-searchable
+            item-content
+            [(ngModel)]="viaje.idCliente"
+            [items]="clientes"
+            itemValueField="id"
+            itemTextField="nombre"
+            closeButtonText="Cancelar"
+            searchPlaceholder="Buscar"
+            [canSearch]="true">
+        </select-searchable>
+      </ion-item>
+       <!-- <ion-item>
+        <ion-label>Usuario</ion-label>
+        <ion-select [(ngModel)]="viaje.idUsuario" cancelText="Cancelar" okText="Aceptar">
+          <ion-option [value]="item.idUsuario" *ngFor="let item of usuarios">{{item.nombre}}</ion-option>
+        </ion-select>
+     </ion-item> -->
+     <ion-item>
+      <ion-label>Usuario</ion-label>
+      <select-searchable
+          item-content
+          [(ngModel)]="viaje.idUsuario"
+          [items]="usuarios"
+          itemValueField="idUsuario"
+          itemTextField="nombre"
+          closeButtonText="Cancelar"
+          searchPlaceholder="Buscar"
+          [canSearch]="true">
+      </select-searchable>
+    </ion-item>
+      </ion-col>
+      <ion-col col-6 padding>
+        <h2>{{viaje.fechaInicioViaje}}</h2>
+        <h3 *ngIf="viaje.transporte">{{viaje.transporte.descripcion}}</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+  <ion-list padding>
+    
+    
+     <!-- transporte -->
+     <!-- <ion-item>
+      <ion-label>Transporte</ion-label>
+      <ion-select [(ngModel)]="viaje.idTransporte" cancelText="Cancelar" okText="Aceptar">
+        <ion-option [value]="item.id" *ngFor="let item of carrocerias">{{item.descripcion}}</ion-option>
+      </ion-select>
+  </ion-item> -->
+  <ion-item>
+    <ion-label>Transporte</ion-label>
+    <select-searchable
+        item-content
+        [(ngModel)]="viaje.idTransporte"
+        [items]="carrocerias"
+        itemValueField="id"
+        closeButtonText="Cancelar"
+        itemTextField="descripcion"
+        searchPlaceholder="Buscar"
+        [canSearch]="true">
+    </select-searchable>
+  </ion-item>
+    <!-- <ion-item>
+        
+        <ion-input type="text" [(ngModel)]="viaje.referencia" placeholder="Referencia"></ion-input>
+      </ion-item> -->
+      <ion-item>
+          {{viaje.referencia}}
+      </ion-item>
+      <ion-item>
+          <ion-label><ion-icon name="pin"></ion-icon></ion-label>
+          <ion-input type="text" [(ngModel)]="viaje.origen" placeholder="Origen" disabled></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name="pin"></ion-icon></ion-label>
+        
+        <ion-input type="text" [(ngModel)]="autocomplete.input" [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" (input)="updateSearchResults()" placeholder="Destino"></ion-input>
+       
+      </ion-item>
+      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+          {{ item.description }}
+        </ion-item>
+  </ion-list>
+  <button ion-button full (click)="actualizarViaje()" [disabled]="!viaje.idTransporte||!viaje.destino||viaje.destino==''||!viaje.idCliente||!viaje.idUsuario"> Actualizar</button>
+
+</ion-content>
+<ion-footer>
+
+</ion-footer>

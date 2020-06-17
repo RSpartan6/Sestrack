@@ -1,0 +1,83 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>En Ruta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+
+    <ion-card-header>
+      Total de Viajes
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+            <ion-img [src]="/src/assets/icon/delivery-truck-color.svg"></ion-img>
+             <!-- <img src="/src/assets/icon/delivery-truck-color.svg" alt=""> -->
+          </ion-col>
+          <ion-col col-9 style="text-align:right">
+              <ion-badge item-end class="viajes">{{viajeObject.viajesRealizados}}</ion-badge>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  
+  </ion-card>
+
+  <ion-card>
+
+      <ion-card-header>
+        Kilometros Recorridos
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3>
+               <img src="/src/assets/icon/car-speed.svg" alt="">
+            </ion-col>
+            <ion-col col-9 style="text-align:right">
+                <ion-badge item-end class="speed">{{viajeObject.kmRecorridos}} Km</ion-badge>
+  
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    
+    </ion-card>
+    <ion-list>
+        <ion-item *ngFor="let item of viajeObject.viajes"       
+          [ngClass]="{'cerrado':item.estatusViaje=='CERRADO', 'asignado':item.estatusViaje=='ASIGNADO', 'finalizado':item.estatusViaje=='FINALIZADO', 'iniciado':item.estatusViaje=='INICIADO', 'cancelado':item.estatusViaje=='CANCELADO'}"
+          (click)="showDetalle(item)">
+            <ion-avatar item-start>
+            </ion-avatar>
+          <h2>{{item.nombreCliente}}</h2>
+          <p>Viaje {{item.id}}</p>
+          <p>{{item.estatusViaje}}</p>
+          <p>{{item.fechaInicioViaje}}</p>
+          <div item-end class="div60">
+              <div>
+                  <ion-icon name="dot"  color="secondary" ></ion-icon>
+                  <div class="separador-punteado"></div>
+                  <ion-icon name="dot"  color="danger" ></ion-icon>
+  
+              </div>
+              <div style="padding-left:4px">
+                
+                  <p class="origen">{{item.origen}}</p>
+                  <p class="line">__________________________________________________________________________________-_</p>
+                  <p class="destino">  {{item.destino}}</p>
+              </div>
+            </div>
+ 
+        </ion-item>
+    </ion-list>
+</ion-content>

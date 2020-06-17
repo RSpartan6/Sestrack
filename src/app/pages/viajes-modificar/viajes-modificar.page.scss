@@ -1,0 +1,40 @@
+page-viajes-modificar {
+    h2,h3{
+        font-size: 1em
+    }
+    .title-viaje{
+        color: #488aff;
+        font-size: 2rem;
+        margin-left: 1em;
+    }
+    .acciones{
+        margin-top: -4px;
+        margin-left: -31px;
+        margin-right: -10px;
+        background: transparent;
+        border: initial;
+        box-shadow: initial;
+    }
+    ion-icon {
+        &[class*="engine-"] {
+          mask-size: contain;
+          mask-position: 50% 50%;
+          mask-repeat: no-repeat;
+          background: currentColor;
+          width: 1.9em;
+          height: 1.9em;
+        
+        }
+     
+        &[class*="engine-black"] {
+            mask-image: url(/src/assets/icon/engine.svg);
+        }
+        
+        &[class*="engine-green"] {
+            mask-image: url(/src/assets/icon/engine-ok.svg);
+        }
+    }
+    .comentarios{
+        font-size: 25px
+    }
+}

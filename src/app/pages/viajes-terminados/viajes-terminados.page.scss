@@ -1,0 +1,87 @@
+.label1{
+    margin-left: -0.7em !important;
+    top: -8px !important;
+    position: relative !important;
+}
+.label2{
+    margin-left: -0.7em !important;
+    bottom: 18px !important;
+    position: absolute !important;
+}
+   
+    
+
+ion-icon {
+    &[class*="dot"] {
+      mask-size: contain;
+      mask-position: 50% 50%;
+      mask-repeat: no-repeat;
+      background: currentColor;
+      width: 0.6em;
+      height: 0.6em;
+      margin-left: -0.5px;
+      mask-image: url(/src/assets/icon/circle.png);
+
+    }
+    
+}
+.line{
+    white-space: nowrap;
+    color: #ccc !important;
+    margin: 5px 0 18px 0 !important;
+    color: transparent !important
+}
+ion-avatar{
+    background: #cccccc;
+    border-radius: 50%;
+}
+.content-md hr {
+    background-color: rgb(204, 204, 204);
+}
+.item-md [item-end] {
+     margin: 0 !important; 
+}
+// .origen{
+//     overflow: inherit;
+//     font-size: 1.4rem !important;
+//     line-height: normal;
+//     text-overflow: inherit;
+//     color: #000 !important;
+//     margin-left: 5px !important;
+//     margin: 0 0 2px;
+//     margin-top: -25px !important;
+// }
+.origen{
+    overflow: inherit;
+        font-size: 1.4rem !important;
+        line-height: normal;
+        text-overflow: inherit;
+    margin-top: 4px
+}
+.destino{
+    margin-bottom: -4px;
+    word-wrap: break-word !important;   
+    overflow-wrap: break-word  !important;
+    word-break: break-word  !important;
+    
+}
+// .destino{
+//     overflow: inherit;
+//     font-size: 1.4rem !important;
+//     line-height: normal;
+//     text-overflow: inherit;
+//     color: #000 !important;
+//     margin-left: 5px !important;
+//     margin-bottom: -13px !important;
+//     margin: 0 0 2px;
+// }
+.div60{
+        width:65% !important;
+    display: flex;
+}
+.separador-punteado {
+    min-height: 30px;
+    height: calc(100% - 35px);
+    border-left: 4px dotted gray;
+    margin-left: 4px;
+}

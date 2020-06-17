@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Temperatura</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="back"></div>
+  <ion-grid>
+      <ion-row>
+     
+        <ion-col col-5>
+            <h1>{{viaje.temperaturaPromedio.toFixed(2)}}°</h1>
+        </ion-col>
+
+        <ion-col col-7>
+            <h2>Promedio</h2>
+            <p>  
+              <ion-icon name="arrow-round-up"></ion-icon>
+              {{viaje.temperaturaMaxima.toFixed(2)}}°
+            </p>
+            <p>  
+              <ion-icon name="arrow-round-down"></ion-icon>
+              {{viaje.temperaturaMinima.toFixed(2)}}°
+            </p>   
+        </ion-col>
+        <ion-col col-12 *ngIf="alertaString" class="center" color="danger">
+            <img src="/src/assets/icon/warning.svg" alt="" width="30px">
+            <p class="alert">ALERTA, {{alertaString}}</p>
+
+        </ion-col>
+      </ion-row>
+     
+    </ion-grid>
+    <br>
+    <div padding>
+      <ion-badge (click)="getData('1h');clicked(0)" color="{{colores[0]}}">1h</ion-badge>
+      <ion-badge (click)="getData('2h');clicked(1)" color="{{colores[1]}}">2h</ion-badge>
+      <ion-badge (click)="getData('4h');clicked(2)" color="{{colores[2]}}">4h</ion-badge>
+      <ion-badge (click)="getData('8h');clicked(3)" color="{{colores[3]}}">8h</ion-badge>
+      <ion-badge (click)="getData('12h');clicked(4)" color="{{colores[4]}}">12h</ion-badge>
+    
+      <ion-badge (click)="getData('1d');clicked(5)" color="{{colores[5]}}">1d</ion-badge>
+      <ion-badge (click)="getData('2d');clicked(6)" color="{{colores[6]}}">2d</ion-badge>
+      <ion-badge (click)="getData('4d');clicked(7)" color="{{colores[7]}}">4d</ion-badge>
+      <ion-badge (click)="getData('todo');clicked(8)" color="{{colores[8]}}">Todo</ion-badge>
+    </div>
+    <br><br>
+    <canvas #lineCanvas></canvas>
+        <!-- </ion-card-content>
+      </ion-card> -->
+</ion-content>

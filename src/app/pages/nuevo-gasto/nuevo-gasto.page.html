@@ -1,0 +1,47 @@
+
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>Agregar Gasto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+
+    <ion-grid>
+
+      <!-- Referencia modulo "viajes-nuevo" -->
+        <ion-row >
+          <ion-col col-12>
+            <ion-item>
+              <ion-label floating>Tipo de Gasto</ion-label>
+              <!-- <ion-input type="text" maxlength="19" [(ngModel)]="nuevo.referencia"></ion-input> -->
+            <ion-input type="text" [(ngModel)]="nuevo.tipoGasto"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Descripción</ion-label>
+              <!-- <select-searchable item-content [(ngModel)]="nuevo.idCliente" [items]="clientes" itemValueField="id"
+                itemTextField="nombre" closeButtonText="Cancelar" searchPlaceholder="Buscar" [canSearch]="true">
+              </select-searchable> -->
+              <ion-input type="text" [(ngModel)] ="nuevo.descripcion"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating> Monto</ion-label>
+              <!-- <select-searchable item-content [(ngModel)]="nuevo.idUsuario" [items]="usuarios" itemValueField="idUsuario"
+                itemTextField="nombre" closeButtonText="Cancelar" searchPlaceholder="Buscar" [canSearch]="true">
+              </select-searchable> -->
+              <ion-input type="string" [(ngModel)]="nuevo.monto"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Fecha</ion-label>
+                <!-- <ion-input type="text" maxlength="19" [(ngModel)]="nuevo.referencia"></ion-input> -->
+                <ion-datetime value="2019-01-01"  [(ngModel)]="nuevo.fecha"></ion-datetime>
+              <!-- <ion-input type="text" [(ngModel)]="nuevo.fecha"></ion-input> -->
+              </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <button ion-button full (click)="nuevoGasto()">Agregar Gastos</button>
+
+</ion-content>

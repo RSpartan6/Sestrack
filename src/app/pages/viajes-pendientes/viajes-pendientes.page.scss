@@ -1,0 +1,38 @@
+page-viajes-pendientes {
+    .label1{
+        margin-left: -0.65em;
+        top: -3px;
+        position: relative;
+    }
+    .label2{
+        margin-left: -0.65em;
+    }
+}
+.cerrado {
+    border-left: solid 5px #F6A623 !important;
+    margin-bottom :5px
+
+}
+
+.asignado {
+    border-left: solid 5px  #4990E2 !important;
+    margin-bottom :5px
+
+}
+
+.finalizado {
+    border-left: solid 5px  #7ED321 !important;  
+    margin-bottom :5px
+
+}
+
+
+.iniciado {
+    border-left: solid 5px  #50E3C2 !important;
+    margin-bottom :5px
+}
+
+.cancelado {
+    border-left: solid 5px  rgb(227, 90, 80) !important;
+        margin-bottom :5px
+}
