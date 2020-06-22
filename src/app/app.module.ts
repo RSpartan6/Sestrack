@@ -9,8 +9,8 @@ import { IonicStorageModule } from '@ionic/storage';
 
 // Paginas
 
-// import { HomePage } from "./pages/home/home.page";
-import { HomePage } from "./home/home.page";
+import { HomePage } from "./pages/home/home.page";
+// import { HomePage } from "./home/home.page";
 import { ListPage } from "./pages/list/list.page";
 import { LoginPage } from "./pages/login/login.page";
 import { DetalleViajePage } from "./pages/detalle-viaje/detalle-viaje.page";
@@ -31,24 +31,26 @@ import { MapPage } from "./pages/map/map.page";
 import { PasswordPage } from "./pages/password/password.page";
 import { IncidenciasPage } from "./pages/incidencias/incidencias.page";
 import { MailPage } from "./pages/mail/mail.page";
+import { TransportistaPage } from "./pages/transportista/transportista.page";
+import { ViajesModificarPage } from "./pages/viajes-modificar/viajes-modificar.page";
 
-// Servicios
+
+// // Servicios
 
 import { LoginService } from "./services/login/login.service";
 import { ViajesService } from "./services/viajes/viajes.service";
 import { MonitoresService } from "./services/monitores/monitores.service";
 import { ReportesService } from "./services/reportes/reportes.service";
-import { ViajesModificarPage } from "./pages/viajes-modificar/viajes-modificar.page";
 import { HttpClientModule } from "@angular/common/http";
-import { TransportistaPage } from "./pages/transportista/transportista.page";
-import { FCM } from "@ionic-native/fcm";
-import { IonicSelectableModule } from 'ionic-selectable';
+
 
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { LoaderDirective } from "./directives/loader.directive";
 import { GoogleMaps } from "@ionic-native/google-maps";
+import { FcmService } from './services/fcm/fcm.service';
+import { HomePageModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -76,10 +78,10 @@ import { GoogleMaps } from "@ionic-native/google-maps";
     ViajesNuevoPage,
     TransportistaPage,
     IncidenciasPage,
-    MailPage,
+    MailPage
   ],
   entryComponents: [
-    AppComponent,
+    
     HomePage,
     ListPage,
     LoginPage,
@@ -102,15 +104,24 @@ import { GoogleMaps } from "@ionic-native/google-maps";
     ViajesNuevoPage,
     TransportistaPage,
     IncidenciasPage,
-    MailPage,
+    MailPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicSelectableModule,    
-    IonicModule.forRoot(),
+    // IonicSelectableModule,    
+    IonicModule.forRoot({
+      backButtonText: 'Atras'
+    }),
     IonicStorageModule.forRoot(),
     AppRoutingModule,
+    HomePageModule    
+
+    // BrowserModule,  
+    // IonicModule.forRoot(), 
+    // IonicStorageModule.forRoot() , 
+    // AppRoutingModule, 
+    // HttpClientModule
   ],
   providers: [
     StatusBar,
@@ -123,7 +134,7 @@ import { GoogleMaps } from "@ionic-native/google-maps";
     ViajesService,
     MonitoresService,
     ReportesService,
-    FCM,
+    FcmService
   ],
   bootstrap: [AppComponent],
 })

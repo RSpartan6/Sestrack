@@ -2,26 +2,14 @@ import { Component, ViewChild } from "@angular/core";
 
 // import { Platform, Nav } from '@ionic/angular';
 import { Platform, NavController } from "@ionic/angular";
-
 import { SplashScreen } from "@ionic-native/splash-screen/ngx";
 import { StatusBar } from "@ionic-native/status-bar/ngx";
-
 import { ReporteViajesPage } from "./pages/reporte-viajes/reporte-viajes.page";
-import { HomePage } from "./pages/home/home.page";
 import { LoginPage } from "./pages/login/login.page";
-import { DetalleViajePage } from "./pages/detalle-viaje/detalle-viaje.page";
-import { MonitorViajesPage } from "./pages/monitor-viajes/monitor-viajes.page";
-import { MapPage } from "./pages/map/map.page";
 import { Storage } from "@ionic/storage";
-import { ViajesModificarPage } from "./pages/viajes-modificar/viajes-modificar.page";
 import { ViajesTerminadosPage } from "./pages/viajes-terminados/viajes-terminados.page";
 import { ViajesPendientesPage } from "./pages/viajes-pendientes/viajes-pendientes.page";
-import { MonitorTrackingPage } from "./pages/monitor-tracking/monitor-tracking.page";
-import { ViajesService } from "./services/viajes/viajes.service";
 import { IncidenciasPage } from "./pages/incidencias/incidencias.page";
-import { MailPage } from "./pages/mail/mail.page";
-import { ReportesService } from "./services/reportes/reportes.service";
-import { Firebase } from "@ionic-native/firebase/ngx";
 import { FCM } from "@ionic-native/fcm";
 import { LoginService } from "./services/login/login.service";
 
