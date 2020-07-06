@@ -19,7 +19,7 @@ import { LoginService } from "./services/login/login.service";
   styleUrls: ["app.component.scss"],
 })
 export class AppComponent {
-  // @ViewChild(Nav) nav: Nav;
+  @ViewChild(NavController) nav: NavController;
 
   rootPage: any = ReporteViajesPage;
 
@@ -128,7 +128,7 @@ export class AppComponent {
           .disenroll(usuario.nombreUsuario, "AppMonitoreo")
           .subscribe((data) => {});
       });
-      this.navCtrl.navigateRoot(page.component);
+      this.nav.navigateRoot(page.component);
     }
   }
 

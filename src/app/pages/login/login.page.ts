@@ -4,10 +4,7 @@ import { NgForm } from '@angular/forms';
 import { LoaderDirective } from "../../directives/loader.directive";
 import { User } from '../../interfaces/user';
 import { Storage } from '@ionic/storage';
-import { PasswordPage } from '../password/password.page'
 import { LoginService } from '../../services/login/login.service'
-import { ViajesTerminadosPage } from '../viajes-terminados/viajes-terminados.page';
-import { ViajesPendientesPage } from '../viajes-pendientes/viajes-pendientes.page';
 import { FCM } from '@ionic-native/fcm/ngx';
 import { Route } from '@angular/compiler/src/core';
 

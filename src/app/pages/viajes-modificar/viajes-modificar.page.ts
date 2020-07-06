@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, AlertController } from '@ionic/angular';
-import { TransportistaPage } from '../transportista/transportista.page';
-import { LoginPage } from '../login/login.page';
 import { Storage } from '@ionic/storage';
-import {ListPage} from '../list/list.page'
 import { LoaderDirective } from "../../directives/loader.directive";
 import { ViajesService } from '../../services/viajes/viajes.service';
 declare var google
